@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="58%" cy="46%" r="85%">
+      <stop offset="0" stop-color="#0c3a72"/>
+      <stop offset=".42" stop-color="#08264f"/>
+      <stop offset="1" stop-color="#031225"/>
+    </radialGradient>
+    <linearGradient id="deep" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#04132d"/>
+      <stop offset=".55" stop-color="#06346b"/>
+      <stop offset="1" stop-color="#021025"/>
+    </linearGradient>
+    <linearGradient id="ribbonA" x1=".1" y1=".1" x2=".9" y2=".85">
+      <stop offset="0" stop-color="#6fd7ff" stop-opacity=".92"/>
+      <stop offset=".36" stop-color="#2f9ff0" stop-opacity=".78"/>
+      <stop offset=".7" stop-color="#1b6ed0" stop-opacity=".44"/>
+      <stop offset="1" stop-color="#0f3b88" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ribbonB" x1=".9" y1=".1" x2=".1" y2=".9">
+      <stop offset="0" stop-color="#bcc7ff" stop-opacity=".62"/>
+      <stop offset=".45" stop-color="#7f8cf0" stop-opacity=".38"/>
+      <stop offset="1" stop-color="#3f4b9d" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ribbonC" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8ff4ff" stop-opacity=".72"/>
+      <stop offset=".55" stop-color="#3bb7f1" stop-opacity=".3"/>
+      <stop offset="1" stop-color="#1c4a9a" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="core" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#c6f3ff" stop-opacity=".55"/>
+      <stop offset=".5" stop-color="#5dbcf8" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#2079cc" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blurXL" x="-45%" y="-45%" width="190%" height="190%">
+      <feGaussianBlur stdDeviation="48"/>
+    </filter>
+    <filter id="blurL" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="blurS" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".82" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 .035"/></feComponentTransfer>
+    </filter>
+    <clipPath id="frame"><rect width="1920" height="1080"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="1920" height="1080" fill="url(#bg)"/>
+    <rect width="1920" height="1080" fill="url(#deep)" opacity=".22"/>
+
+    <g filter="url(#blurXL)" opacity=".78">
+      <path d="M-160 910 C260 650 430 360 900 340 C1280 324 1450 520 1680 420 C1840 350 1940 220 2080 150 L2080 1200 L-160 1200 Z" fill="url(#ribbonA)"/>
+      <path d="M-100 130 C240 240 420 500 760 560 C1100 620 1370 390 1660 480 C1840 535 1980 690 2080 720 L2080 1100 C1700 960 1540 780 1220 760 C860 738 590 920 300 1080 L-100 1080 Z" fill="url(#ribbonB)"/>
+    </g>
+
+    <g filter="url(#blurL)">
+      <path d="M528 1130 C640 850 920 700 1192 708 C1462 716 1620 864 1804 968 C1660 758 1510 520 1220 452 C950 392 706 562 642 782 C600 925 562 1020 470 1128 Z" fill="url(#ribbonC)" opacity=".82"/>
+      <path d="M1570 -80 C1470 200 1560 410 1770 560 C1880 640 1950 750 1980 900 C2050 670 1980 390 1830 200 C1735 78 1660 0 1570 -80 Z" fill="url(#ribbonB)" opacity=".66"/>
+      <path d="M340 -60 C460 120 500 300 420 486 C350 650 250 760 132 850 C310 810 470 680 560 500 C650 318 590 120 470 -60 Z" fill="url(#ribbonA)" opacity=".35"/>
+    </g>
+
+    <g filter="url(#blurS)" opacity=".9">
+      <path d="M760 700 C860 500 1060 430 1260 500 C1410 552 1510 670 1570 800 C1470 650 1320 570 1160 590 C990 612 870 700 760 820 Z" fill="#c2f4ff" opacity=".34"/>
+      <path d="M1160 280 C1280 248 1402 286 1490 370 C1365 332 1248 334 1160 386 Z" fill="#d9e2ff" opacity=".5"/>
+    </g>
+    <ellipse cx="1130" cy="590" rx="420" ry="310" fill="url(#core)" filter="url(#blurXL)" opacity=".75"/>
+
+    <g opacity=".25" filter="url(#blurL)">
+      <path d="M1180 1150 C1110 930 1180 720 1410 620 C1600 540 1790 600 1920 722 L1920 1180 Z" fill="#2778c8"/>
+    </g>
+    <rect width="1920" height="1080" filter="url(#grain)" opacity=".32"/>
+    <rect width="1920" height="1080" fill="none" stroke="#96c8ff" stroke-opacity=".06" stroke-width="60"/>
+  </g>
+</svg>

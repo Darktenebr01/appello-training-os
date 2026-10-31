@@ -1,1 +1,8 @@
-# repository bootstrap
+# local browser/profile artifacts
+.chrome-shot*/
+audit-*.png
+$tmp
+
+# OS/editor noise
+Thumbs.db
+.DS_Store

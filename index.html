@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="APPELLO EA Academy — a Windows-inspired training operating system for learning executive assistant work. All data is fictional.">
+  <title>APPELLO EA Academy — Training OS</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%232f7cf6'/%3E%3Cstop offset='1' stop-color='%239b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='15' fill='url(%23g)'/%3E%3Cpath d='M17 42V22l15 11 15-11v20' fill='none' stroke='white' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/apps.css">
+  <link rel="stylesheet" href="css/training.css">
+  <link rel="stylesheet" href="css/windows11.css">
+  <link rel="stylesheet" href="css/m365.css">
+</head>
+<body>
+  <a class="skip-link" href="#desktop">Skip to desktop</a>
+
+  <div id="training-banner" class="training-banner" role="banner" aria-label="Training workspace notice">
+    <div class="banner-left">
+      <span class="banner-flask" aria-hidden="true">⚗</span>
+      <strong>TRAINING WORKSPACE</strong>
+      <span class="banner-sep" aria-hidden="true">•</span>
+      <span>APPELLO PRACTICE DATA</span>
+    </div>
+    <div class="banner-center">APPELLO &nbsp;·&nbsp; Executive Assistant Academy</div>
+    <div class="banner-right">
+      <button class="banner-assist" type="button" data-action="assistant" data-tip="Open APPELLO Assist, the local training helper.">✦ Assist</button>
+      <button class="banner-btn" type="button" data-action="glossary" data-tip="Open the plain-language glossary of office and technology terms.">Glossary</button>
+      <button class="banner-btn" type="button" data-action="shortcuts" data-tip="See every keyboard shortcut in the training OS.">Shortcuts</button>
+      <span class="banner-disclaimer">APPELLO Internal Learning</span>
+      <button class="banner-btn reset-btn" type="button" data-action="reset-data" data-tip="Erase your practice work and restore the original training company data.">↺ Reset training data</button>
+    </div>
+  </div>
+
+  <main id="desktop" class="desktop" aria-label="Training desktop">
+    <div class="wallpaper" aria-hidden="true">
+      <div class="wallpaper-bloom bloom-a"></div>
+      <div class="wallpaper-bloom bloom-b"></div>
+      <div class="wallpaper-bloom bloom-c"></div>
+      <div class="wallpaper-grid"></div>
+      <div class="wallpaper-brand">
+        <span class="wallpaper-mark">A</span>
+        <span>APPELLO</span>
+      </div>
+      <div class="wallpaper-caption">EA TRAINING WORKSTATION · BUILD 2026.11</div>
+    </div>
+
+    <div id="desktop-icons" class="desktop-icons" aria-label="Desktop shortcuts"></div>
+    <div id="window-layer" class="window-layer"></div>
+
+    <section id="start-menu" class="start-menu" hidden aria-label="Start menu">
+      <div class="start-search">
+        <svg class="start-search-glyph" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m15.2 15.2 4.3 4.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <input id="start-search-input" type="search" placeholder="Search for apps, settings, files, and training" autocomplete="off"
+          aria-label="Search apps, settings, files, and training" data-tip="Type an app, file, person, or lesson. Results open when you press Enter or click.">
+        <kbd>Esc</kbd>
+      </div>
+      <div id="start-search-results" class="start-search-results" hidden></div>
+      <div id="start-default-content">
+        <div class="start-section-head"><span>Pinned</span><button type="button" data-action="all-apps" class="link-btn">All apps <span aria-hidden="true">›</span></button></div>
+        <div id="start-pinned" class="start-pinned"></div>
+        <div class="start-section-head"><span>Recommended</span><button type="button" class="link-btn" data-action="start-more-recent">More <span aria-hidden="true">›</span></button></div>
+        <div id="start-recent" class="start-recent"></div>
+      </div>
+      <div id="start-all-apps" class="start-all-apps" hidden>
+        <div class="start-all-head"><button type="button" class="start-back" data-action="start-back" aria-label="Back">‹</button><strong>All apps</strong><span></span></div>
+        <div id="start-all-list" class="start-all-list"></div>
+      </div>
+      <div class="start-footer">
+        <button type="button" id="account-menu-button" class="account-chip" data-target="account-menu"
+          data-tip="Open your training account, shift status, and sign-in option.">
+          <span id="account-avatar" class="avatar avatar-sm">EH</span>
+          <span class="account-meta"><strong id="account-name">Elizabeth Hale</strong><small id="account-status">Training EA · Signed out</small></span>
+        </button>
+        <div class="start-footer-actions">
+          <button type="button" class="start-footer-btn" data-action="training-hub" data-tip="Open the Training Hub to learn, practise, and test EA skills." aria-label="Training Hub"><span aria-hidden="true">🎓</span></button>
+          <button type="button" class="start-footer-btn" data-action="settings-app" data-tip="Open Settings." aria-label="Settings"><span aria-hidden="true">⚙</span></button>
+          <button type="button" class="start-footer-btn" data-action="power-menu" data-tip="Power options: lock, sign out, restart, or shut down the simulation." aria-label="Power"><span aria-hidden="true">⏻</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="notification-center" class="notification-center" hidden aria-label="Notification center and calendar">
+      <div class="notif-calendar">
+        <div class="notif-cal-head"><span id="notif-cal-month">November 2026</span><button type="button" class="link-btn" data-action="mail-calendar" data-tip="Open the executive calendar in Mail.">Open calendar</button></div>
+        <div id="notif-mini-calendar" class="notif-mini-calendar"></div>
+        <div id="notif-agenda" class="notif-agenda"></div>
+      </div>
+      <div class="notif-head"><div><strong>Notifications</strong><span id="notif-count" class="pill">0</span></div><button type="button" class="link-btn" data-action="clear-notifications" data-tip="Clear all notifications from this training session.">Clear all</button></div>
+      <div class="notif-tabs"><button type="button" class="active" data-notif-tab="all">All</button><button type="button" data-notif-tab="training">Training</button><button type="button" data-notif-tab="work">Work</button></div>
+      <div id="notif-list" class="notif-list"></div>
+      <div class="notif-footer"><label class="switch-row"><span>Do not disturb <small>Silence practice notifications</small></span><input type="checkbox" id="focus-assist" data-tip="When on, practice notifications are collected quietly in this center."><span class="switch"></span></label></div>
+    </section>
+
+    <section id="quick-settings" class="quick-settings" hidden aria-label="Quick settings"></section>
+    <section id="widgets-panel" class="widgets-panel" hidden aria-label="Widgets"></section>
+    <section id="task-view" class="task-view" hidden aria-label="Task view"></section>
+    <section id="power-menu" class="power-menu" hidden aria-label="Power options"></section>
+
+    <section id="account-panel" class="account-panel" hidden aria-label="Account panel">
+      <div class="account-panel-head">
+        <span class="avatar avatar-lg">EH</span>
+        <div><strong>Elizabeth Hale</strong><small>Executive Assistant (Training)</small><small id="account-panel-shift">Shift not started</small></div>
+      </div>
+      <div class="account-panel-body">
+        <p class="muted-small">This is a simulated workstation. No password, account, or personal data is used.</p>
+        <button type="button" class="btn btn-primary full" data-action="sign-in" data-target="sign-in-button" data-tip="Start your simulated shift as Elizabeth Hale. No password is needed.">Sign in for today's shift</button>
+        <button type="button" class="btn full" data-action="lock" data-tip="End the simulated shift and return to a signed-out state.">Sign out</button>
+        <button type="button" class="btn full" data-action="reset-data" data-tip="Restore all training data to the original starting state.">Reset training data</button>
+        <div class="account-tip">Tip: press <kbd>Alt</kbd> + <kbd>Tab</kbd> to switch windows.</div>
+      </div>
+    </section>
+
+    <div id="context-menu" class="context-menu" hidden role="menu" aria-label="Context menu"></div>
+    <div id="alt-tab" class="alt-tab" hidden role="dialog" aria-label="Switch windows"></div>
+  </main>
+
+  <footer id="taskbar" class="taskbar" aria-label="Taskbar">
+    <div class="taskbar-left">
+      <button type="button" id="weather-widget" class="weather-widget" data-action="widgets" data-tip="Open Widgets. New York: 14°C, light rain.">
+        <span class="weather-symbol" aria-hidden="true">☁</span><span class="weather-copy"><strong>14°C</strong><small>Light rain</small></span>
+      </button>
+    </div>
+    <div class="taskbar-center">
+      <button type="button" id="start-button" class="taskbar-btn start-btn" aria-label="Open Start menu" aria-expanded="false" data-tip="Start menu: apps, recent files, settings, and power.">
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="win-logo"><rect x="2" y="2" width="9" height="9" rx="1.1"/><rect x="13" y="2" width="9" height="9" rx="1.1"/><rect x="2" y="13" width="9" height="9" rx="1.1"/><rect x="13" y="13" width="9" height="9" rx="1.1"/></svg>
+      </button>
+      <button type="button" class="taskbar-btn search-pill" id="taskbar-search" data-action="search" data-tip="Search apps, settings, files, people, and lessons.">
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m15.2 15.2 4.3 4.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Search</span>
+      </button>
+      <button type="button" id="task-view-button" class="taskbar-btn taskview-btn" data-action="task-view" data-tip="Task view: see every open window (Ctrl+Alt+Tab)." aria-label="Task view">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="11" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 18h9a3 3 0 0 0 3-3V8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <div id="taskbar-apps" class="taskbar-apps" aria-label="Pinned and open apps"></div>
+    </div>
+    <div class="taskbar-right">
+      <div class="tray-system">
+        <button type="button" id="quick-settings-button" class="tray-system-btn" data-action="quick-settings" data-tip="Network, volume, battery, and quick settings." aria-label="Quick settings">
+          <span class="tray-network" id="tray-network" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M2.5 8.5a14 14 0 0 1 19 0M5.5 11.7a9.5 9.5 0 0 1 13 0M8.7 14.8a4.8 4.8 0 0 1 6.6 0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="18.2" r="1.3" fill="currentColor"/></svg>
+          </span>
+          <span class="tray-volume" id="tray-volume" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 9.5h3.3L12 5.8v12.4l-4.7-3.7H4V9.5Z" fill="currentColor"/><path class="volume-wave" d="M15 9a4.2 4.2 0 0 1 0 6M17.8 6.8a8 8 0 0 1 0 10.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <span class="tray-battery" id="tray-battery" aria-hidden="true"><i></i><b>92</b></span>
+        </button>
+      </div>
+      <button type="button" class="tray-clock" data-action="notifications" data-tip="Open Notification Center and calendar.">
+        <span id="taskbar-time">10:24 AM</span><span id="taskbar-date">Mon, Nov 9</span>
+      </button>
+      <button type="button" class="tray-btn notif-tray-btn" data-action="notifications" data-tip="Open Notification Center and calendar." aria-label="Notifications"><span aria-hidden="true">🔔</span><span id="notif-badge" class="badge" hidden>0</span></button>
+      <button type="button" class="show-desktop-btn" data-action="show-desktop" data-tip="Show the desktop (Win+D)." aria-label="Show desktop"></button>
+      <button type="button" class="tray-btn presence-hidden" data-action="presence" tabindex="-1" aria-hidden="true"><span id="presence-dot" class="presence-dot available"></span><span id="presence-label">Available</span></button>
+    </div>
+  </footer>
+  <div id="display-dim" class="display-dim" aria-hidden="true"></div>
+
+  <div id="toasts" class="toast-stack" aria-live="polite" aria-atomic="false"></div>
+  <div id="modal-root" class="modal-root" hidden></div>
+  <div id="tooltip" class="tooltip" hidden role="tooltip"></div>
+  <div id="training-coach" class="training-coach" hidden aria-live="polite"></div>
+  <div id="training-highlight" class="training-highlight" hidden aria-hidden="true"></div>
+  <div id="training-taskbar" class="training-taskbar" hidden></div>
+  <div id="boot-screen" class="boot-screen" aria-label="Loading training workstation">
+    <div class="boot-mark">A</div>
+    <div class="boot-title">APPELLO</div>
+    <div class="boot-sub">Executive Assistant Training Workstation</div>
+    <div class="boot-progress"><span></span></div>
+    <div class="boot-note">Loading a fictional workday…</div>
+  </div>
+
+  <noscript><div class="noscript">This training OS needs JavaScript enabled. Everything runs locally in your browser.</div></noscript>
+
+  <script defer src="js/icons.js"></script>
+  <script defer src="js/data.js"></script>
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/store.js"></script>
+  <script defer src="js/calendar-view.js"></script>
+  <script defer src="js/sheet-engine.js"></script>
+  <script defer src="js/xlsx.js"></script>
+  <script defer src="js/apps/files.js"></script>
+  <script defer src="js/apps/mail.js"></script>
+  <script defer src="js/apps/calendar.js"></script>
+  <script defer src="js/apps/drive.js"></script>
+  <script defer src="js/apps/assistant.js"></script>
+  <script defer src="js/apps/browser.js"></script>
+  <script defer src="js/apps/teams.js"></script>
+  <script defer src="js/apps/sheets.js"></script>
+  <script defer src="js/apps/docs.js"></script>
+  <script defer src="js/apps/todo.js"></script>
+  <script defer src="js/apps/notes.js"></script>
+  <script defer src="js/apps/tools.js"></script>
+  <script defer src="js/apps/settings.js"></script>
+  <script defer src="js/training.js"></script>
+  <script defer src="js/os.js"></script>
+  <script defer src="js/main.js"></script>
+</body>
+</html>
