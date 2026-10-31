@@ -30,8 +30,11 @@ python -m http.server 8090
 Then open <http://localhost:8090/>. Do not run the server from your user folder — that is what causes
 the “Directory listing for /” page.
 
-There is nothing to install. The training station is designed for a desktop
-browser (Chrome or Edge) at 1366×768 or larger.
+There is nothing to install. The training station is desktop-first for Chrome
+or Edge at 1366×768 or larger. A phone layout activates below 760 px: full-screen
+windows, a compact Start menu and taskbar, single-column Training Hub, stacked
+Mail reading pane, and horizontally scrollable sheet and file views. The layout
+also respects iPhone safe-area insets.
 
 ## Publish it on GitHub Pages
 

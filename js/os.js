@@ -121,6 +121,7 @@
       return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
     });
     const iconFor = item => Icons.icon(item.icon || (catalog(item.app) || {}).icon || item.app, 'icon-tile');
+    const mobileTap = window.matchMedia('(max-width: 760px)').matches;
     const launchItem = item => {
       if (item.external) {
         Utils.openExternal(item.external);
@@ -129,18 +130,19 @@
       }
       openApp(item.app);
     };
-    holder.innerHTML = icons.map(item => `<button class="desktop-icon ${item.external ? 'executable' : ''}" data-desktop-app="${item.app}" ${item.external ? `data-external="${esc(item.external)}"` : ''} data-tip="Double-click to ${item.external ? 'run' : 'open'} ${esc(item.label)}. Right-click for more options.">
+    holder.innerHTML = icons.map(item => `<button class="desktop-icon ${item.external ? 'executable' : ''}" data-desktop-app="${item.app}" ${item.external ? `data-external="${esc(item.external)}"` : ''} data-tip="${mobileTap ? 'Tap' : 'Double-click'} to ${item.external ? 'run' : 'open'} ${esc(item.label)}. Right-click for more options.">
       ${iconFor(item)}
       <span class="label">${esc(item.label)}</span>
     </button>`).join('');
     holder.querySelectorAll('[data-desktop-app]').forEach(el => {
       const item = icons.find(i => i.app === el.dataset.desktopApp);
       if (!item) return;
-      el.onclick = e => {
+      el.onclick = () => {
         holder.querySelectorAll('.desktop-icon').forEach(x => x.classList.remove('selected'));
         el.classList.add('selected');
+        if (mobileTap) launchItem(item);
       };
-      el.ondblclick = () => launchItem(item);
+      if (!mobileTap) el.ondblclick = () => launchItem(item);
       el.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); launchItem(item); } };
       el.oncontextmenu = e => {
         e.preventDefault();
@@ -332,9 +334,10 @@
       });
       titlebar.addEventListener('mouseleave', hideSnap);
     }
-    titlebar.addEventListener('dblclick', e => { if (!e.target.closest('.window-control')) maximizeWindow(win); });
+    titlebar.addEventListener('dblclick', e => { if (!window.matchMedia('(max-width: 760px)').matches && !e.target.closest('.window-control')) maximizeWindow(win); });
     titlebar.addEventListener('mousedown', e => {
       if (e.target.closest('.window-control') || e.button !== 0) return;
+      if (window.matchMedia('(max-width: 760px)').matches) return;
       if (win.maximized) return;
       focusWindow(win);
       const startX = e.clientX, startY = e.clientY;
@@ -358,7 +361,7 @@
     });
     el.querySelectorAll('[data-resize]').forEach(handle => {
       handle.addEventListener('mousedown', e => {
-        if (win.maximized) return;
+        if (win.maximized || window.matchMedia('(max-width: 760px)').matches) return;
         e.preventDefault(); e.stopPropagation();
         focusWindow(win);
         const dir = handle.dataset.resize;

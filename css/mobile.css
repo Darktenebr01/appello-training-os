@@ -1,0 +1,641 @@
+/* ==========================================================================
+   APPELLO mobile workstation
+   Loaded after m365.css. Desktop experience is unchanged above 760 px.
+   ========================================================================== */
+@media (max-width: 760px) {
+  :root {
+    --banner-h: calc(34px + env(safe-area-inset-top, 0px));
+    --taskbar-h: calc(54px + env(safe-area-inset-bottom, 0px));
+  }
+
+  html, body { height: 100%; height: 100dvh; overflow: hidden; }
+  body { -webkit-text-size-adjust: 100%; overscroll-behavior: none; }
+  .desktop { inset: var(--banner-h) 0 var(--taskbar-h) 0; }
+  .window-body, .mail-list, .mail-reading-pane, .message-scroll, .sheet-scroll,
+  .files-content, .todo-list, .training-main, .settings-main, .drive-main,
+  .docs-workspace, .browser-content, .assistant-messages {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* ------------------------------ top banner ------------------------------ */
+  .training-banner {
+    height: var(--banner-h);
+    padding: env(safe-area-inset-top, 0px) 8px 0;
+    gap: 4px;
+    font-size: 8.5px;
+  }
+  .banner-left { gap: 4px; min-width: 0; flex: 0 0 auto; }
+  .banner-flask { font-size: 12px; }
+  .banner-left strong { font-size: 8.2px; letter-spacing: .015em; white-space: nowrap; }
+  .banner-left .banner-sep, .banner-left > span:last-child { display: none !important; }
+  .banner-center, .banner-disclaimer { display: none !important; }
+  .banner-right { gap: 3px; margin-left: auto; min-width: 0; }
+  .banner-right .banner-btn:not(.reset-btn) { display: none !important; }
+  .banner-assist { height: 21px; padding: 0 6px; font-size: 7.6px; }
+  .reset-btn {
+    height: 21px; padding: 0 6px; max-width: 108px;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    font-size: 7.2px;
+  }
+
+  /* ------------------------------- taskbar -------------------------------- */
+  .taskbar {
+    display: flex !important;
+    grid-template-columns: none !important;
+    align-items: center;
+    gap: 2px;
+    height: var(--taskbar-h);
+    padding: 0 4px env(safe-area-inset-bottom, 0px);
+  }
+  .taskbar-left { display: none !important; }
+  .taskbar-center {
+    display: flex !important;
+    flex: 1;
+    min-width: 0;
+    justify-content: flex-start;
+    gap: 2px;
+  }
+  .start-btn { flex: 0 0 40px; width: 40px !important; height: 40px !important; }
+  .search-pill, .taskview-btn { display: none !important; }
+  .taskbar-apps {
+    display: flex !important;
+    flex: 1;
+    min-width: 0;
+    gap: 1px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 1px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .taskbar-apps::-webkit-scrollbar { display: none; }
+  .taskbar-app {
+    width: 40px !important;
+    height: 40px !important;
+    flex: 0 0 40px !important;
+    padding: 5px !important;
+  }
+  .taskbar-app .icon-tile { width: 27px !important; height: 27px !important; }
+  .taskbar-right { flex: 0 0 auto; display: flex; align-items: center; }
+  .taskbar-right .tray-system, .notif-tray-btn, .show-desktop-btn { display: none !important; }
+  .tray-clock {
+    display: flex !important;
+    height: 40px;
+    padding: 0 4px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 8px;
+    line-height: 1.15;
+  }
+  .tray-clock #taskbar-date { display: none !important; }
+
+  /* -------------------------------- Start --------------------------------- */
+  .start-menu {
+    left: 6px !important;
+    right: 6px !important;
+    width: auto !important;
+    height: calc(100vh - var(--banner-h) - var(--taskbar-h) - 8px) !important;
+    height: calc(100dvh - var(--banner-h) - var(--taskbar-h) - 8px) !important;
+    max-height: calc(100vh - var(--banner-h) - var(--taskbar-h) - 8px);
+    bottom: calc(var(--taskbar-h) + 4px) !important;
+    transform: none !important;
+  }
+  .start-search { margin: 10px 12px 5px; height: 38px; }
+  .start-search kbd { display: none; }
+  .start-search input::placeholder { font-size: 12px; }
+  #start-default-content { padding: 2px 12px 0; overflow-y: auto; flex: 1; min-height: 0; }
+  .start-footer { flex-shrink: 0; }
+  .start-pinned { grid-template-columns: repeat(4, 1fr) !important; }
+  .start-app { min-height: 76px; font-size: 9.3px; padding: 7px 2px 4px; }
+  .start-app .icon-tile { width: 35px; height: 35px; }
+  .start-section-head { font-size: 10px; margin: 10px 2px 6px; }
+  .start-recent { grid-template-columns: 1fr !important; }
+  .start-footer { height: 50px; padding: 0 12px; }
+  .account-meta strong { font-size: 10.5px; }
+  .account-meta small { font-size: 8px; }
+  .start-all-apps { margin: 0 12px; }
+  .start-all-row { min-height: 42px; }
+
+  /* ------------------------------ desktop icons --------------------------- */
+  .desktop-icons {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-rows: none !important;
+    grid-auto-rows: 78px !important;
+    gap: 2px !important;
+    align-content: start !important;
+    padding: 8px 5px !important;
+    max-height: 100% !important;
+    overflow-y: auto !important;
+  }
+  .desktop-icon {
+    width: auto !important;
+    height: 78px !important;
+    padding: 4px 2px !important;
+    gap: 3px !important;
+  }
+  .desktop-icon .icon-tile { width: 37px !important; height: 37px !important; }
+  .desktop-icon span.label {
+    font-size: 8.3px !important;
+    line-height: 1.15 !important;
+    max-width: 72px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .desktop-icon.executable::after { right: 5px; bottom: 25px; font-size: 5.6px; }
+
+  /* -------------------------------- windows ------------------------------- */
+  #window-layer { inset: 0 !important; }
+  .window,
+  .window:not(.maximized) {
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .window-titlebar { height: 36px !important; padding-left: 8px !important; gap: 6px; }
+  .window-title { font-size: 10px !important; }
+  .window-title-icon, .window-title-icon .icon-tile { width: 16px; height: 16px; }
+  .window-control { width: 40px !important; height: 34px !important; }
+  .window [data-win-max], .resize-handle, .snap-flyout { display: none !important; }
+  .window-controls .window-control:last-child { border-top-right-radius: 0; }
+  .window-body { border-radius: 0 !important; }
+
+  /* -------------------------------- modals -------------------------------- */
+  .modal-root .modal {
+    width: calc(100vw - 12px) !important;
+    max-width: none !important;
+    max-height: calc(100vh - 16px) !important;
+    border-radius: 9px !important;
+  }
+  .modal-root .modal-head, .modal-root .modal-body, .modal-root .modal-foot { padding-left: 14px !important; padding-right: 14px !important; }
+  .modal-root .modal-foot { flex-wrap: wrap; gap: 5px; }
+  .modal-root .modal-head h2 { font-size: 16px !important; }
+  .form-grid { grid-template-columns: 1fr !important; }
+  .form-grid .span-2 { grid-column: auto !important; }
+
+  /* forms: 16px prevents iOS focus zoom */
+  input, textarea, select { font-size: 16px !important; }
+
+  .toast-stack {
+    left: 8px !important;
+    right: 8px !important;
+    width: auto !important;
+    bottom: calc(var(--taskbar-h) + 8px) !important;
+  }
+  .toast { width: 100% !important; max-width: none !important; }
+  .tooltip { display: none !important; }
+  .context-menu { max-width: calc(100vw - 12px); }
+  .alt-tab { width: calc(100vw - 20px); min-width: 0; max-width: none; padding: 10px; }
+  .alt-tab-grid { grid-template-columns: 1fr !important; }
+  .training-coach, .training-taskbar {
+    left: 8px !important;
+    right: 8px !important;
+    width: auto !important;
+    bottom: calc(var(--taskbar-h) + 8px) !important;
+    max-height: calc(100vh - var(--banner-h) - var(--taskbar-h) - 16px) !important;
+    overflow-y: auto !important;
+  }
+
+  /* ------------------------------- Training Hub --------------------------- */
+  .training-appbar { height: 44px !important; padding: 0 8px !important; gap: 6px; }
+  .training-brand strong { font-size: 11px !important; }
+  .training-brand small { display: none !important; }
+  .training-appbar-center { display: none !important; }
+  .training-appbar-right .help-btn { display: none !important; }
+  .training-appbar-right .btn { height: 25px; font-size: 8px; }
+  .training-body {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+  }
+  .training-side {
+    display: flex !important;
+    flex: 0 0 44px !important;
+    width: 100% !important;
+    height: 44px !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 2px;
+    padding: 4px 6px !important;
+    overflow-x: auto !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid #292929 !important;
+  }
+  .training-new, .training-side-level, .training-side-footer { display: none !important; }
+  .training-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 2px !important;
+    margin: 0 !important;
+    flex: 1;
+    overflow-x: auto;
+  }
+  .training-nav button {
+    width: auto !important;
+    height: 32px !important;
+    min-height: 32px;
+    padding: 0 8px !important;
+    font-size: 9px !important;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+  .training-nav-count { display: none !important; }
+  .training-main { flex: 1 !important; min-height: 0; }
+  .training-dash { padding: 12px !important; max-width: none !important; }
+  .training-hero {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    padding: 16px !important;
+  }
+  .training-hero h1 { font-size: 22px !important; line-height: 1.12; }
+  .training-hero p { font-size: 9.6px !important; line-height: 1.5; }
+  .training-hero .hero-cta { flex-wrap: wrap; gap: 5px; }
+  .training-progress-ring { width: 72px !important; height: 72px !important; align-self: flex-end !important; }
+  .training-progress-ring > div strong { font-size: 18px !important; }
+  .training-stat-row { grid-template-columns: 1fr 1fr !important; gap: 6px !important; }
+  .training-stat { padding: 9px !important; }
+  .training-stat > strong { font-size: 18px !important; }
+  .training-section { margin-top: 15px !important; }
+  .training-section-head h2 { font-size: 15px !important; }
+  .level-cards, .scenario-grid { grid-template-columns: 1fr !important; }
+  .scenario-feature { flex-direction: column !important; gap: 9px !important; }
+  .scenario-feature .feature-art { width: 100% !important; height: 100px; }
+  .training-app .level-card-items { padding-left: 2px; }
+
+  /* ---------------------------------- Mail -------------------------------- */
+  .outlook-topbar { height: 40px !important; padding: 0 6px !important; gap: 4px; }
+  .outlook-brand { min-width: 0 !important; padding-right: 4px; border-right: 0; }
+  .outlook-brand strong { font-size: 10px; }
+  .outlook-menubar { display: none !important; }
+  .mail-global-search { width: auto !important; max-width: none !important; height: 26px; margin: 0 3px !important; flex: 1; }
+  .outlook-top-actions .outlook-assist-btn,
+  .outlook-top-actions .icon-btn { display: none !important; }
+  .outlook-top-actions .avatar { width: 22px; height: 22px; font-size: 7px; }
+  .outlook-ribbon {
+    height: 52px !important;
+    padding: 3px 5px !important;
+    gap: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+  }
+  .outlook-ribbon::-webkit-scrollbar { display: none; }
+  .outlook-ribbon-group { flex-direction: row; padding: 0 3px; gap: 1px; min-width: auto; }
+  .outlook-group-label, .outlook-ribbon-help { display: none !important; }
+  .outlook-command { min-height: 32px !important; height: 32px; font-size: 7.4px !important; padding: 2px 5px !important; }
+  .outlook-command.tall { width: auto !important; min-width: 42px !important; height: 40px !important; flex-direction: row !important; gap: 3px !important; }
+  .outlook-command.tall .oc-icon { font-size: 14px; }
+  .outlook-command.tall > span:last-child { font-size: 7px !important; }
+  .outlook-ribbon-sep { height: 36px; margin: 0 2px; }
+  .outlook-body { flex-direction: column !important; }
+  .outlook-rail {
+    display: flex !important;
+    width: 100% !important;
+    height: 40px !important;
+    flex: 0 0 40px !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2px;
+    padding: 2px 5px !important;
+    overflow-x: auto;
+    border-right: 0 !important;
+    border-bottom: 1px solid #292929 !important;
+  }
+  .outlook-rail-spacer { display: none !important; }
+  .outlook-rail-btn { width: 36px !important; height: 34px !important; flex: 0 0 36px; font-size: 14px; }
+  .outlook-rail-btn.active::before { left: 7px; right: 7px; top: auto; bottom: 0; width: auto; height: 2px; }
+  .outlook-sidebar {
+    display: flex !important;
+    width: 100% !important;
+    height: 38px !important;
+    flex: 0 0 38px !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 2px;
+    padding: 3px 6px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid #292929 !important;
+  }
+  .outlook-account, .outlook-folder-label, .outlook-sidebar .mail-add-folder,
+  .outlook-sidebar-foot { display: none !important; }
+  .outlook-sidebar .mail-nav { display: flex !important; flex-direction: row !important; gap: 2px; flex: 0 0 auto; }
+  .outlook-sidebar .mail-folder {
+    width: auto !important;
+    height: 29px !important;
+    flex: 0 0 auto;
+    padding: 0 8px !important;
+    font-size: 8.7px !important;
+    white-space: nowrap;
+  }
+  .outlook-sidebar .mail-folder.active::before { display: none; }
+  .mail-workspace { flex: 1 !important; min-height: 0; }
+  .mail-panes { flex-direction: column !important; }
+  .mail-list-pane {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 42% !important;
+    flex: 0 0 42% !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid #292929 !important;
+  }
+  .mail-reading-pane { display: block !important; flex: 1 !important; min-height: 0; }
+  .mail-list-head { padding: 5px 8px 3px !important; }
+  .mail-list-controls { padding: 0 8px 5px !important; }
+  .mail-row { padding: 7px 8px !important; gap: 6px !important; }
+  .mail-row-avatar .avatar { width: 24px; height: 24px; }
+  .mail-row-preview { font-size: 8px; }
+  .mail-subject-line { padding: 12px 14px 4px !important; }
+  .mail-subject-line h1 { font-size: 15px !important; }
+  .mail-sender-row { padding: 6px 14px 8px !important; gap: 7px; }
+  .mail-body-text { padding: 12px 14px !important; font-size: 10px !important; }
+  .mail-read-toolbar { padding: 0 8px !important; height: 34px; }
+  .mail-read-actions .btn { font-size: 7.6px !important; padding: 2px 5px !important; }
+  .mail-read-footer { padding: 8px 14px 0 !important; font-size: 7.2px; }
+  .mail-empty-reading { padding: 20px 14px; background: #111 !important; }
+  .mail-empty-reading h3, .mail-empty-reading p { color: #c7c7c7 !important; }
+  .mail-empty-reading .empty-icon { font-size: 34px; }
+  .compose-side { border-left: 0 !important; border-top: 1px solid #333; }
+  .compose-layout { display: block !important; }
+  .compose-main, .compose-side { width: 100% !important; }
+
+  /* -------------------------------- Teamspace ----------------------------- */
+  .teams-app { flex-direction: column !important; }
+  .teams-rail {
+    width: 100% !important;
+    height: 46px !important;
+    flex: 0 0 46px !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 2px;
+    padding: 2px 5px !important;
+    overflow-x: auto;
+    border-right: 0 !important;
+    border-bottom: 1px solid #292929 !important;
+  }
+  .teams-brand, .teams-rail-bottom { display: none !important; }
+  .teams-rail-nav { display: flex; flex-direction: row; gap: 1px; padding: 0; flex: 1; overflow-x: auto; }
+  .teams-rail-btn { width: 52px !important; height: 40px !important; flex: 0 0 52px; }
+  .teams-rail-btn.active::before { left: 10px; right: 10px; top: auto; bottom: 0; width: auto; height: 2px; }
+  .teams-topbar { height: 42px !important; padding: 0 8px !important; gap: 5px; }
+  .teams-brand, .teams-topbar .help-btn, .teams-assist-btn, .teams-presence-btn { display: none !important; }
+  .teams-topbar-left { display: none !important; }
+  .teams-search { max-width: none !important; flex: 1; height: 28px; }
+  .teams-topbar-right { gap: 3px; }
+  .teams-two-col, .teams-two-col.channel-layout {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 38% 62% !important;
+  }
+  .teams-list-pane { border-right: 0 !important; border-bottom: 1px solid #2a2a2a !important; }
+  .teams-list-head { padding: 7px 10px 5px !important; }
+  .teams-list-head h2 { font-size: 13px !important; }
+  .teams-list-head p, .chat-list-preview, .chat-list-copy small { display: none !important; }
+  .chat-list-item, .chat-list-row { min-height: 44px; }
+  .teams-conversation { min-height: 0; }
+  .convo-head { min-height: 46px !important; padding: 6px 9px !important; }
+  .convo-head .help-btn, .convo-actions .btn { display: none !important; }
+  .message-scroll { padding: 8px !important; }
+  .message { gap: 6px; }
+  .message-body { max-width: calc(100% - 32px) !important; padding: 7px 9px !important; }
+  .composer { padding: 5px 6px !important; }
+  .composer-tools { gap: 2px; }
+  .composer-area textarea { font-size: 14px !important; }
+  .thread-panel { display: none !important; }
+  .calls-layout { grid-template-columns: 1fr !important; }
+  .teams-files-grid, .teams-two-col.calls-layout { grid-template-columns: 1fr !important; }
+  .teams-calendar-body { overflow-x: auto; }
+
+  /* --------------------------------- Tasks -------------------------------- */
+  .todo-appbar { height: 44px !important; padding: 0 8px !important; gap: 5px; }
+  .todo-brand small, .todo-appbar .help-btn { display: none !important; }
+  .todo-search { height: 28px; max-width: none; flex: 1; }
+  .todo-body { display: flex !important; flex-direction: column !important; }
+  .todo-sidebar {
+    width: 100% !important;
+    height: 44px !important;
+    flex: 0 0 44px !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 2px;
+    padding: 3px 6px !important;
+    overflow-x: auto !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid #292929 !important;
+  }
+  .todo-profile, .todo-summary, .todo-tip, .todo-progress { display: none !important; }
+  .todo-nav { display: flex !important; flex-direction: row !important; gap: 2px; flex: 1; overflow-x: auto; }
+  .todo-nav button { width: auto !important; height: 32px !important; padding: 0 9px !important; flex: 0 0 auto; white-space: nowrap; font-size: 8.5px; }
+  .todo-nav button.active::before { display: none; }
+  .todo-main { flex: 1 !important; min-height: 0; }
+  .todo-main-head { padding: 10px 12px 6px !important; flex-wrap: wrap; gap: 6px; }
+  .todo-main-head h2 { font-size: 19px !important; }
+  .todo-view-actions { width: 100%; }
+  .todo-view-actions .select { flex: 1; }
+  .quick-add-row { margin: 0 12px !important; }
+  .todo-list { padding: 0 12px 10px !important; }
+  .todo-detail { display: none !important; }
+  .todo-row { padding: 8px 6px !important; }
+
+  /* --------------------------------- Files -------------------------------- */
+  .files-side { display: none !important; }
+  .files-shell { flex: 1 !important; }
+  .files-tabstrip { height: 32px; padding: 0 6px; }
+  .files-tab { padding: 0 9px; font-size: 8.5px; }
+  .files-toolbar { padding: 0 6px !important; gap: 4px; }
+  .files-address { height: 28px; font-size: 8.5px; }
+  .files-commandbar { padding: 0 6px !important; overflow-x: auto; gap: 1px; }
+  .files-commandbar > button { font-size: 7.8px; padding: 0 5px; white-space: nowrap; }
+  .files-sort { display: none !important; }
+  .files-header { padding: 8px 10px 5px !important; }
+  .files-header h2 { font-size: 14px; }
+  .files-header p { display: none !important; }
+  .files-header-actions { display: none !important; }
+  .files-content.grid-view { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 6px !important; padding: 0 8px 10px !important; }
+  .file-card { min-height: 132px !important; padding: 7px !important; }
+  .file-card-preview { height: 66px !important; }
+  .file-card-meta strong { font-size: 8.6px !important; }
+  .file-card-meta small { font-size: 7px !important; }
+  .file-row { min-height: 40px; padding: 5px 7px !important; }
+  .files-details-pane { display: none !important; }
+
+  /* -------------------------------- Sheets -------------------------------- */
+  .sheets-appbar { height: 44px !important; padding: 0 8px !important; gap: 4px; }
+  .sheets-brand small, .sheets-appbar-center { display: none !important; }
+  .sheets-appbar .help-btn { display: none !important; }
+  .sheets-appbar .btn { font-size: 7.8px; padding: 0 6px; height: 25px; }
+  .ribbon-tabs { overflow-x: auto; flex-wrap: nowrap; }
+  .ribbon-tabs button { padding: 7px 8px; font-size: 8.5px; white-space: nowrap; }
+  .sheets-toolbar { overflow-x: auto; flex-wrap: nowrap; padding: 0 6px; scrollbar-width: none; }
+  .sheets-toolbar::-webkit-scrollbar { display: none; }
+  .sheet-tool { min-width: 27px; }
+  .formula-bar { padding: 0 6px !important; gap: 4px; }
+  .name-box { width: 54px !important; font-size: 9px; }
+  .formula-input { font-size: 12px !important; }
+  .sheet-main { min-height: 0; }
+  .sheet-scroll { overflow: auto; }
+  .chart-panel { display: none !important; }
+  .sheet-footer { height: 34px !important; padding: 0 6px !important; }
+  .sheet-tab { padding: 0 9px; font-size: 8.5px; }
+  .sheet-status { font-size: 7.2px; }
+  .sheet-file-status { display: none !important; }
+  .cell-editor { font-size: 16px !important; }
+
+  /* --------------------------------- Docs --------------------------------- */
+  .docs-appbar { height: 44px !important; padding: 0 8px !important; gap: 4px; }
+  .docs-brand small, .docs-appbar .help-btn { display: none !important; }
+  .docs-side { display: none !important; }
+  .docs-ribbon { overflow-x: auto; flex-wrap: nowrap; padding: 0 6px; }
+  .docs-workspace { padding: 8px !important; }
+  .docs-page-wrap { padding: 0 !important; }
+  .docs-page { width: 100% !important; min-height: 100% !important; padding: 20px 16px !important; border: 0 !important; border-radius: 0 !important; }
+  .docs-page h1 { font-size: 24px !important; }
+  .docs-page p, .docs-page li { font-size: 12px !important; }
+  .docs-footer { display: none !important; }
+
+  /* ------------------------------ Cloud Drive ----------------------------- */
+  .drive-topbar { height: 44px !important; padding: 0 8px !important; gap: 4px; }
+  .drive-brand { min-width: 0 !important; }
+  .drive-brand strong { font-size: 10px; }
+  .drive-top-right .help-btn, .drive-top-right .icon-btn { display: none !important; }
+  .drive-search { height: 28px; margin: 0 3px; }
+  .drive-side { display: none !important; }
+  .drive-main { padding: 12px 12px 20px !important; }
+  .drive-greeting h1 { font-size: 20px !important; }
+  .drive-greeting p { font-size: 8.5px; }
+  .drive-cards { grid-template-columns: 1fr 1fr !important; gap: 6px; }
+  .drive-card-preview { height: 62px; }
+  .drive-card-foot { padding: 6px !important; }
+  .drive-card-foot strong { font-size: 8.4px; }
+  .drive-card-open { display: none !important; }
+  .drive-table-head, .drive-row { grid-template-columns: minmax(0, 1fr) 84px !important; }
+  .drive-row-owner, .drive-row-activity { display: none !important; }
+  .drive-row-date { font-size: 7.4px; }
+  .drive-row-name strong { font-size: 8.6px; }
+  .drive-row-name-cell { gap: 5px; }
+
+  /* -------------------------------- Calendar ------------------------------ */
+  .calendar-topbar { height: 44px !important; padding: 0 8px !important; gap: 5px; }
+  .calendar-brand small, .calendar-top-actions .help-btn { display: none !important; }
+  .calendar-brand strong { font-size: 10px; }
+  .calendar-search { height: 28px; margin: 0 2px; }
+  .calendar-top-actions .avatar { width: 22px; height: 22px; font-size: 7px; }
+  .calendar-toolbar { flex-wrap: wrap !important; padding: 6px 7px !important; gap: 4px !important; }
+  .cal-title { font-size: 13px !important; }
+  .cal-toolbar-right { flex-wrap: wrap; gap: 3px; }
+  .cal-view-switch { overflow-x: auto; }
+  .calendar-body, .week-scroll, .month-view { overflow-x: auto !important; }
+  .week-view, .day-view { min-width: 760px; }
+  .month-grid { min-width: 640px; }
+  .cal-legend { font-size: 7px; flex-wrap: wrap; }
+
+  /* -------------------------------- Browser ------------------------------- */
+  .browser-tabrow { height: 36px; padding: 5px 6px 0; }
+  .browser-tab { flex: 1 1 0; min-width: 0; max-width: none; padding: 0 7px; font-size: 8.5px; }
+  .browser-lock-pill { display: none !important; }
+  .browser-toolbar { height: 38px; padding: 0 5px; }
+  .browser-nav { width: 25px; }
+  .browser-address { height: 25px; margin: 0 2px; border-radius: 4px; }
+  .browser-url { font-size: 8px; }
+  .browser-verified { display: none !important; }
+  .browser-page-copy { padding: 20px 16px !important; }
+  .browser-page-copy h1 { font-size: 38px !important; }
+  .browser-page-art, .browser-side { display: none !important; }
+  .browser-inline-window { width: calc(100% - 12px) !important; height: calc(100% - 12px) !important; }
+  .browser-inline-address { padding: 0 6px; gap: 4px; }
+  .browser-inline-external { font-size: 7px; padding: 2px 4px; }
+
+  /* -------------------------------- Settings ------------------------------ */
+  .settings-appbar { height: 44px !important; padding: 0 8px !important; }
+  .settings-brand small, .settings-appbar-actions .help-btn { display: none !important; }
+  .settings-body { display: flex !important; flex-direction: column !important; }
+  .settings-side {
+    width: 100% !important;
+    height: 46px !important;
+    flex: 0 0 46px !important;
+    flex-direction: row !important;
+    display: flex !important;
+    align-items: center;
+    gap: 2px;
+    padding: 4px 6px !important;
+    overflow-x: auto !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid #2b2b2b !important;
+  }
+  .settings-side > button {
+    width: auto !important;
+    height: 32px !important;
+    flex: 0 0 auto;
+    padding: 0 9px !important;
+    font-size: 8.5px;
+    white-space: nowrap;
+  }
+  .settings-side > button span { display: none !important; }
+  .settings-side-foot { display: none !important; }
+  .settings-main { padding: 14px 12px 24px !important; }
+  .settings-page-head h1 { font-size: 24px !important; }
+  .settings-home-grid { grid-template-columns: 1fr !important; }
+  .settings-home-card { padding: 12px !important; }
+  .settings-list-row { grid-template-columns: 1fr auto !important; gap: 7px; }
+  .settings-account-hero, .settings-update-hero, .settings-time-hero, .settings-about-hero { flex-direction: column !important; align-items: flex-start !important; gap: 8px !important; }
+  .settings-about-hero .settings-about-mark { width: 52px !important; height: 52px !important; font-size: 25px; }
+
+  /* ------------------------------ Assistant ------------------------------- */
+  .assistant-header { height: 48px; padding: 0 10px; }
+  .assistant-messages { padding: 10px; }
+  .assist-suggestions { grid-template-columns: 1fr; }
+  .assistant-compose { margin: 0 8px 5px; }
+  .assistant-compose textarea { font-size: 16px !important; }
+  .assist-bubble { max-width: 88% !important; }
+
+  /* -------------------------- Notes / Calculator / Clock ------------------ */
+  .notes-side, .calculator-history { display: none !important; }
+  .notes-main { width: 100% !important; }
+  .calc-display { font-size: 34px !important; }
+  .calc-grid { gap: 4px !important; }
+  .calc-key { min-height: 48px !important; }
+  .world-grid { grid-template-columns: 1fr !important; }
+
+  /* -------------------------- Quick settings / widgets -------------------- */
+  .quick-settings, .widgets-panel, .notification-center {
+    left: 6px !important;
+    right: 6px !important;
+    width: auto !important;
+    bottom: calc(var(--taskbar-h) + 4px) !important;
+    max-height: calc(100vh - var(--banner-h) - var(--taskbar-h) - 12px);
+    overflow-y: auto;
+  }
+  .notif-calendar { display: none !important; }
+  .ql-grid, .qs-tiles { grid-template-columns: 1fr 1fr !important; }
+  .widgets-grid { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 360px) {
+  .reset-btn { display: none !important; }
+  .banner-left strong { font-size: 7.4px; }
+  .taskbar-app { width: 37px !important; flex-basis: 37px !important; }
+  .start-app { min-height: 70px; }
+  .browser-page-copy h1 { font-size: 31px !important; }
+}
+
+@media (max-width: 760px) and (orientation: landscape) and (max-height: 520px) {
+  :root { --banner-h: 30px; --taskbar-h: 48px; }
+  .window-titlebar { height: 32px !important; }
+  .training-appbar, .outlook-topbar, .teams-topbar, .todo-appbar,
+  .calendar-topbar, .settings-appbar, .sheets-appbar, .docs-appbar, .drive-topbar {
+    height: 38px !important;
+  }
+  .training-coach, .training-taskbar { max-height: calc(100vh - 86px) !important; }
+  .mail-list-pane { height: 46% !important; flex-basis: 46% !important; }
+}
