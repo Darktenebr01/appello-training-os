@@ -31,7 +31,7 @@ jobs:
       - name: Stage only the static site
         run: |
           mkdir -p "$RUNNER_TEMP/site"
-          cp -a index.html .nojekyll README.md assets css js "$RUNNER_TEMP/site/"
+          cp -a index.html .nojekyll README.md assets css js robots.txt sitemap.xml site.webmanifest "$RUNNER_TEMP/site/"
 
       - name: Upload the site
         uses: actions/upload-pages-artifact@v3

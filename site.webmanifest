@@ -1,0 +1,29 @@
+{
+  "name": "APPELLO EA Academy — Executive Assistant Training OS",
+  "short_name": "APPELLO EA",
+  "description": "Free browser-based executive assistant training simulator with 21 guided scenarios, email, calendar, tasks, files, and spreadsheets.",
+  "id": "/appello-training-os/",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape-primary",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

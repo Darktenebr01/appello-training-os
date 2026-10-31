@@ -780,6 +780,9 @@ body.modal-open .toast .toast-close { pointer-events: auto; }
 @keyframes bootload { to { transform: translateX(115%); } }
 .boot-note { font-size: 10px; color: #7f98b8; margin-top: 12px; }
 .noscript { position: fixed; inset: 0; z-index: 100001; display: grid; place-items: center; background: #0b1830; color: white; padding: 30px; text-align: center; }
+.noscript h2 { font-family: var(--font-display); font-size: 28px; margin: 0 0 12px; }
+.noscript p { max-width: 620px; font-size: 13px; line-height: 1.7; color: #c8d7e8; margin: 5px auto; }
+.noscript a { color: #7cc4ff; }
 
 /* Misc */
 .offline-note { display: inline-flex; align-items: center; gap: 5px; font-size: 9.5px; color: var(--muted); }

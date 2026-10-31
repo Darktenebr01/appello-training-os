@@ -65,6 +65,41 @@ or a local server.
 Progress is saved per browser and per site address. Work done from the local
 file version is separate from work done on the GitHub Pages version.
 
+## Search engine setup
+
+The site includes:
+
+- A descriptive title, meta description, canonical URL, and robots directives.
+- Open Graph and Twitter/X preview metadata with `assets/og-image.png`.
+- Structured data for the website, training application, and learning resource.
+- Semantic headings, a screen-reader-accessible summary, and a JavaScript-off fallback.
+- `robots.txt`, `sitemap.xml`, a web app manifest, favicons, and app icons.
+
+### Google Search Console
+
+1. Open [Google Search Console](https://search.google.com/search-console/) and add a
+   **URL-prefix** property for `https://darktenebr01.github.io/appello-training-os/`.
+2. Choose **HTML tag** verification, copy the `google-site-verification` meta tag, and paste it into
+   the `<head>` of `index.html` above the stylesheet links.
+3. Commit and push; GitHub Pages redeploys automatically.
+4. Return to Search Console, verify, then open **Sitemaps** and submit:
+
+```text
+https://darktenebr01.github.io/appello-training-os/sitemap.xml
+```
+
+5. Use **URL Inspection** on the home page and choose **Request indexing**.
+
+Indexing is not instant. Google may take days to discover and render a JavaScript-heavy training
+application; the static summary and metadata give it a useful description in the meantime.
+
+For a project site on `github.io`, Google reads `robots.txt` from the host root, so the repository's
+`robots.txt` is mainly useful when the app moves to a custom domain. The page-level
+`<meta name="robots" content="index,follow">` directive is effective either way.
+
+If the site moves to a custom domain or a different repository name, update the absolute URLs in
+`index.html`, `sitemap.xml`, `robots.txt`, and `site.webmanifest` together.
+
 ## What opens first
 
 The desktop loads with the **Training Hub** window open. Start with
